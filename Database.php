@@ -8,7 +8,6 @@ class Database
     public static function connect()
     {
         try {
-            // Используем параметры из конфигурации для подключения
             self::$pdo = new PDO("mysql:host=localhost:3306;dbname=urls", "root", "");
             self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
@@ -23,8 +22,6 @@ class Database
 
             $stmt->bindParam(':originalUrl', $originalUrl);
             $stmt->bindParam(':shortUrl', $shortUrl);
-
-            //echo "shortUrl: $shortUrl\n";
 
             $stmt->execute();
         } catch (PDOException $e){

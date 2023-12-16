@@ -2,8 +2,6 @@
 header('Content-Type: application/json');
 include 'Database.php';
 
-// принимиаем ajax
-
 $requestPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -13,8 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($originalUrl)){
         $shortID = substr(md5(uniqid()), 0, 7);
         $shortenedUrl = "http://localhost/TestTask3/{$shortID}";
-        //echo $shortenedUrl;
-        //echo json_encode( ['shortenedUrl' => $shortenedUrl]);
         echo  json_encode($shortenedUrl);
         Database::connect();
         Database::addShortenedUrl($originalUrl, $shortenedUrl);

@@ -2,12 +2,8 @@
 header('Content-Type: application/json');
 include 'Database.php';
 
-echo 'обработка короткой ссылки ,';
-
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $shortURL = rtrim($_SERVER['REQUEST_URI'], '/');
-
-    //echo  'http://localhost/' . $shortURL;
 
     $shortURL = 'http://localhost' . $shortURL;
 
@@ -21,10 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         if (!empty($originalUrl)){
             //перенаправление на длинную ссылку
             header("Location: $originalUrl", true, 301);
-            exit();
         } else {
             echo 'короткой ссылки нет в базе ,';
-            header("Location: /404.php");
+            header("HTTP/1.0 404 Not Found");
+            exit();
         }
     } else {
         echo 'неправильная короткая ссылка';
