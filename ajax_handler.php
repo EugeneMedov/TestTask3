@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($originalUrl)){
         $shortID = substr(md5(uniqid()), 0, 7);
         $shortenedUrl = "http://localhost/TestTask3/{$shortID}";
-        //echo $shortenedUrl;
+        echo $shortenedUrl;
         Database::connect();
         Database::addShortenedUrl($originalUrl, $shortenedUrl);
 

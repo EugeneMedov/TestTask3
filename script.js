@@ -10,7 +10,7 @@ function shortenUrl(){
         }
     }
     let data = 'action=shorten&originalUrl=' + encodeURIComponent(originalUrl)
-    console.log(data)
+    //console.log(data)
     xhr.send(data)
 }
 

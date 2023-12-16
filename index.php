@@ -14,7 +14,6 @@
 </form>
 
 <div id="resultContainer">
-    <br>
 
 </div>
 
