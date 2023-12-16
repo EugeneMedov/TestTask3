@@ -13,8 +13,12 @@
     <button type="button" onclick="shortenUrl()">Сократить</button>
 </form>
 
-<div id="resultContainer">
+<br>
 
+<div id="result">
+    Короткая ссылка:
+    <br>
+    <textarea id="resultContainer" readonly rows="1" cols="50"></textarea>
 </div>
 
 <!--<body>-->

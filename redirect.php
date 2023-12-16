@@ -15,8 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     if (!empty($shortURL)) {
 
-        //$url = $shortURL + '4';
-
         Database::connect();
         $originalUrl = Database::getOriginalUrl($shortURL);
 

@@ -6,7 +6,9 @@ function shortenUrl(){
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     xhr.onreadystatechange = function (){
         if (xhr.readyState === 4 && xhr.status === 200){
-            document.getElementById('resultContainer').innerHTML = xhr.responseText
+            //console.log(JSON.parse(xhr.responseText))
+            let response = JSON.parse(xhr.responseText)
+            document.getElementById('resultContainer').innerHTML = JSON.parse(xhr.responseText)
         }
     }
     let data = 'action=shorten&originalUrl=' + encodeURIComponent(originalUrl)

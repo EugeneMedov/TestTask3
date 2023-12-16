@@ -13,13 +13,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($originalUrl)){
         $shortID = substr(md5(uniqid()), 0, 7);
         $shortenedUrl = "http://localhost/TestTask3/{$shortID}";
-        echo $shortenedUrl;
+        //echo $shortenedUrl;
+        //echo json_encode( ['shortenedUrl' => $shortenedUrl]);
+        echo  json_encode($shortenedUrl);
         Database::connect();
         Database::addShortenedUrl($originalUrl, $shortenedUrl);
-
     } else {
-        echo 'не верный url';
+        echo json_encode('Неверный URL');
     }
 } else {
-    echo 'метод не разрешен';
+    echo json_encode('метод не разрешен');
 }
