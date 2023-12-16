@@ -15,8 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         Database::connect();
         Database::addShortenedUrl($originalUrl, $shortenedUrl);
     } else {
+        http_response_code(400);
         echo json_encode('Неверный URL');
     }
 } else {
+    http_response_code(405);
     echo json_encode('метод не разрешен');
 }
